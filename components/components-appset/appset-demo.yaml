@@ -8,8 +8,7 @@ spec:
   generators:
   - merge:
       mergeKeys:
-        - server
-        - cluster.gitopsname
+        - clusterName
       generators:
         - clusterDecisionResource:
             configMapRef: appset-placement
@@ -17,7 +16,7 @@ spec:
             requireAfterSeconds: 30
         - git:
             repoURL: https://github.com/mparram/clusterdecisionresource-demo.git
-            revision: master
+            revision: main
             files:
             - path: "cluster-definition/**/cluster.json"
   template:
