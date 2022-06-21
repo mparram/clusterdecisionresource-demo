@@ -1,0 +1,12 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: test-placement
+spec:
+  clusterReplicas: 1
+  clusterSelector:
+    matchLabels:
+      'demo': 'true'
+  clusterConditions:
+    - type: ManagedClusterConditionAvailable
+      status: "True"

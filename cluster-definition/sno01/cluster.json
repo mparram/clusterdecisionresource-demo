@@ -1,0 +1,10 @@
+{
+  "environment": "test",
+  "cloud": "baremetal",
+  "region": "home",
+  "cluster": {
+    "name": "sno01",
+    "alias": "sno01",
+    "address": "https://api.sno01.rciots.com:6443"
+  }
+}

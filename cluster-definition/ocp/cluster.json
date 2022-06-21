@@ -1,0 +1,10 @@
+{
+  "environment": "test",
+  "cloud": "rhv",
+  "region": "home",
+  "cluster": {
+    "name": "ocp",
+    "alias": "ocp",
+    "address": "https://api.ocp.rciots.com:6443"
+  }
+}

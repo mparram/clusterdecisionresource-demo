@@ -1,0 +1,11 @@
+{
+  "environment": "test",
+  "cloud": "rhv",
+  "region": "home",
+  "cluster": {
+    "gitopsname": "local-cluster",
+    "name": "LOCAL-V4-CLUSTER",
+    "alias": "ocp",
+    "address": "https://kubernetes.default.svc"
+  }
+}
