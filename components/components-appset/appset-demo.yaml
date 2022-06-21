@@ -18,7 +18,7 @@ spec:
             repoURL: https://github.com/mparram/clusterdecisionresource-demo.git
             revision: main
             files:
-            - path: "cluster-definition/**/cluster.json"
+            - path: "cluster-definition/V4-{{clusterName}}/cluster.json"
   template:
     metadata:
       name: '{{name}}-test'
