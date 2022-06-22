@@ -6,28 +6,28 @@ metadata:
   namespace: openshift-gitops
 spec:
   generators:
-  - merge:
-      mergeKeys:
-        - clusterName
-      generators:
-        - clusterDecisionResource:
-            configMapRef: appset-placement
-            name: test-placement
-            requireAfterSeconds: 30
-        - git:
-            repoURL: https://github.com/mparram/clusterdecisionresource-demo.git
-            revision: main
-            files:
-            - path: "cluster-definition/V4-{{clusterName}}/cluster.json"
+    - merge:
+        generators:
+          - clusterDecisionResource:
+              configMapRef: appset-placement
+              name: test-placement
+          - git:
+              files:
+                - path: 'cluster-definition/V4-{{clusterName}}/cluster.json'
+              repoURL: 'https://github.com/mparram/clusterdecisionresource-demo.git'
+              revision: main
+        mergeKeys:
+          - clusterName
+          - cloud
   template:
     metadata:
       name: '{{name}}-test'
     spec:
-      project: demo
-      source:
-        repoURL: https://github.com/argoproj/argocd-example-apps/
-        targetRevision: HEAD
-        path: aaaa/{{cluster.name}}
       destination:
         server: '{{server}}'
+      project: default
+      source:
+        path: 'aaaa/V4-{{cloud}}'
+        repoURL: 'https://github.com/argoproj/argocd-example-apps/'
+        targetRevision: HEAD
       syncPolicy: {}
